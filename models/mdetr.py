@@ -484,7 +484,7 @@ class SetCriterion(nn.Module):
         loss_ce = -(logits * target_sim).sum(-1)
 
         eos_coef = torch.full(loss_ce.shape, self.eos_coef, device=target_sim.device)
-        eos_coef[src_idx] = 1
+        # eos_coef[src_idx] = 1
 
         loss_ce = loss_ce * eos_coef
         loss_ce = loss_ce.sum() / num_boxes
