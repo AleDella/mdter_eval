@@ -33,6 +33,8 @@ class GQAQuestionAnswering(torchvision.datasets.CocoDetection):
         img, target = super(GQAQuestionAnswering, self).__getitem__(idx)
         image_id = self.ids[idx]
         coco_img = self.coco.loadImgs(image_id)[0]
+        print("Image:", coco_img)
+        exit(0)
         caption = coco_img["caption"]
         dataset_name = coco_img["dataset_name"]
         questionId = coco_img["questionId"]
